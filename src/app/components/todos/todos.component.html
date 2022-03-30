@@ -1,0 +1,4 @@
+<div class="todos">
+    <h3 [ngStyle]="{marginLeft: '5px'}">Todos</h3>
+    <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+</div>

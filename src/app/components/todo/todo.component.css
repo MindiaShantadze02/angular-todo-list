@@ -1,0 +1,9 @@
+.todo {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.todo-content p {
+    margin: 5px 0;
+}
