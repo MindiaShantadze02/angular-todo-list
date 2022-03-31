@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit } from '@angular/core';
 import { Todo } from 'src/app/Todo';
+import { TodoService } from 'src/app/services/todo.service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-todo',
@@ -7,16 +9,15 @@ import { Todo } from 'src/app/Todo';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  @Input() todo: Todo = {
-    id: 0,
-    title: '',
-    description: ''
-  };
+  @Input() todo!: Todo;
+  @Output() onDeleteTask: EventEmitter<number> = new EventEmitter;
 
-  constructor() { }
+  constructor(private todoService:TodoService) { }
 
   ngOnInit(): void {
-    console.log(this.todo)
   }
 
+  onDelete():void {
+    this.onDeleteTask.emit();
+  }
 }

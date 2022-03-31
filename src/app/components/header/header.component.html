@@ -1,11 +1,12 @@
-<form class="todo-form">
+<form class="todo-form" [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <h2 [ngStyle]="{margin: '10px 0'}">Todo List</h2>
     <mat-form-field appearance="fill">
       <mat-label>Todo Title</mat-label>
-      <input matInput placeholder="Ex. Shopping">
+      <input matInput placeholder="Ex. Shopping" ngModel formControlName="title">
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Todo Description</mat-label>
-      <textarea matInput></textarea>
+      <textarea matInput ngModel formControlName="description"></textarea>
     </mat-form-field>
-    <button mat-raised-button color="accent">Add Todo</button>
-  </form>
+    <button mat-raised-button color="accent" [disabled]="todoForm.invalid">Add Todo</button>
+</form>
